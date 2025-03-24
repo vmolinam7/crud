@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="{% static 'css/registrar.css' %}">
+</head>
+
+<body>
+    <div class="register-container">
+        <h2>Registrarse</h2>
+        <form method="post">
+            {% csrf_token %}
+            {% if error %}
+            <div class="error-message">{{ error }}</div>
+            {% endif %}
+            <input type="text" name="username" placeholder="Nombre de usuario" required>
+            <input type="email" name="email" placeholder="Correo electrónico">
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit">Registrarse</button>
+        </form>
+        <a href="{% url 'login' %}">Ya tienes una cuenta? Inicia sesión aquí</a>
+    </div>
+</body>
+
+</html>
