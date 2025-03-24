@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'crud.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://postgres:postgres@localhost:5432/crud',        
+        default='postgresql://postgres:root@localhost:5432/crud',        
         conn_max_age=600    )}
 
 # DATABASES = {
