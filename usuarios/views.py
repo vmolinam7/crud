@@ -19,12 +19,12 @@ def login_vista(request):
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             user = form.get_user()
-            if user.is_superuser:
-                login(request, user)
-                return redirect('lista_usuarios')
-            else:
-                messages.info(request, 'Debes ser SA para ingresar.')
-                form = AuthenticationForm()
+            # if user.is_superuser:
+            login(request, user)
+            return redirect('lista_usuarios')
+            # else:
+            #     messages.info(request, 'Debes ser SA para ingresar.')
+            #     form = AuthenticationForm()
     else:
         form = AuthenticationForm()
     return render(request, 'principal.html', {'form': form})
